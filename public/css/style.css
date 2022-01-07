@@ -83,7 +83,7 @@ h1{
 }
 
 .content > ol > li > p {
-    font-weight: 100;
+    font-weight: 300;
     font-size: 16px;
 }
 
@@ -134,10 +134,21 @@ h1{
     }
 
     .content{
-        padding: 20px;
-        font-size: 14px;
-        line-height: 20px;
+        padding: 22px;
+        font-size: 18px;
+        line-height: 23px;
+        font-weight:300;
     }
+
+.content > ol > li{
+  line-height:25px;
+}
+
+.content > ol > li > p{
+  font-weight:300;
+  font-size:18px;
+  line-height:23px;
+}
     
 
 .blog-list{
