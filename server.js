@@ -23,6 +23,7 @@ app.get('/blog/:id/:title', async (req, res) => {
 
     if(id){
         let cacheDoc = myCache.get(id);
+        let allDocs = await getAllDocs();
         if(cacheDoc){
             res.render('pages/blog', cacheDoc);
             return;
@@ -32,7 +33,7 @@ app.get('/blog/:id/:title', async (req, res) => {
         let doc = snapshot.data();
         
         myCache.set( id, doc, 86400 );
-        res.render('pages/blog', doc);
+        res.render('pages/blog', {...doc, blogs:allDocs});
         return;
     }
 
@@ -40,10 +41,14 @@ app.get('/blog/:id/:title', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
+    let allDocs = await getAllDocs();
+    res.render('pages/index', {blogs:allDocs, title:null});
+});
+
+async function getAllDocs(){
     let docs = myCache.get("alldocs");
     if(docs){
-        res.render('pages/index', {blogs:docs, title:null});
-        return;
+        return docs;
     }
 
     let snapshot = await blogsDb.get();
@@ -56,8 +61,8 @@ app.get('/', async (req, res) => {
     });
     
     myCache.set( "alldocs", allDocs, 86400 );
-    res.render('pages/index', {blogs:allDocs, title:null});
-});
+    return allDocs;
+}
 
 app.get('/*', (req, res) => {
     res.render('pages/error', {title:null});
