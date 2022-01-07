@@ -1,0 +1,161 @@
+html{
+    padding: 0;
+    margin: 0;
+}
+body{
+    /* background-color: rgb(247, 246, 244); */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    font-family: sans-serif;
+    color:rgb(27, 27, 27);
+    margin: 0;
+}
+
+.nav{
+    height: 7vh;
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav > div{
+    margin: 20px;
+}
+
+.nav > div > a{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(77, 77, 77);
+}
+
+h1{
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.reading{
+    border: 0px solid rgb(248, 235, 220);
+    border-radius: 10px;
+    /* background-color: rgb(250, 245, 240);
+    box-shadow: 2px 2px 2px rgb(250, 221, 182); */
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.header{
+    /* background-color: cadetblue; */
+    min-height: 10vh;
+    text-align: center;
+}
+
+.sub-header{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.content{
+    /* background-color: cornflowerblue; */
+    min-height: 70vh;
+    padding: 30px;
+    font-weight: 100;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 22px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.content > ol > li {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.content > ol > li > p {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.blog-list{
+    min-height: 80vh;
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 100px;
+}
+
+.blog{
+    margin-bottom: 50px;
+}
+
+.blog > a{
+    text-decoration: none;
+    font-size: 24px;
+    color:rgb(2, 2, 218);
+}
+
+.blog > div{
+    text-decoration: none;
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 7px;
+    line-height: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    h1{
+        font-weight: 400;
+        font-size: 36px;
+    }
+
+    .reading{
+        width: 95%;
+    }
+
+    .header{
+        font-size: 18px;
+    }
+
+    .sub-header{
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    .content{
+        padding: 20px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+
+.blog-list{
+    margin-top: 50px;
+}
+
+.blog{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.blog > a{
+    font-size: 20px;
+}
+
+.blog > div{
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 20px;
+}
+  }
