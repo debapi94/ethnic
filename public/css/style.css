@@ -76,13 +76,13 @@ h1{
     max-width: 600px;
 }
 
-.content > ol > li {
+.content > ol,ul > li {
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 50px;
 }
 
-.content > ol > li > p {
+.content > ol,ul > li > p {
     font-weight: 300;
     font-size: 16px;
 }
@@ -140,11 +140,11 @@ h1{
         font-weight:300;
     }
 
-.content > ol > li{
+.content > ol,ul > li{
   line-height:25px;
 }
 
-.content > ol > li > p{
+.content > ol,ul > li > p{
   font-weight:300;
   font-size:18px;
   line-height:23px;
