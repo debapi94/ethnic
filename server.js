@@ -25,7 +25,7 @@ app.get('/blog/:id/:title', async (req, res) => {
         let cacheDoc = myCache.get(id);
         let allDocs = await getAllDocs();
         if(cacheDoc){
-            res.render('pages/blog', cacheDoc);
+            res.render('pages/blog', {...cacheDoc, blogs:allDocs});
             return;
         }
 
