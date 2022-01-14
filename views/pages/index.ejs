@@ -3,13 +3,6 @@
     <%- include('header.ejs') %>
 <body>
     <%- include('nav.ejs') %>
-    <div class="blog-list">
-        <% for(var i=0; i < blogs.length; i++) { %>
-            <div class="blog">
-              <a href='<%= blogs[i].url %>' target="_blank"><%= blogs[i].title %></a>
-              <div><%= blogs[i].about %><i><a href='<%= blogs[i].url %>' target="_blank">Read</a></i></div>
-            </div>
-         <% } %>
-    </div>
+    <%- include('blog-list.ejs') %>
 </body>
 </html>

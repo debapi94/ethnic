@@ -54,10 +54,10 @@ async function getAllDocs(){
     let snapshot = await blogsDb.get();
     let allDocs = snapshot.docs.map(doc => {
         
-        let { title, about } = doc.data();
+        let { title, about, index_image_url } = doc.data();
         let url = `/blog/${doc.id}/${title.replace(/ /g, "-")}`;
 
-        return { title, url, about };
+        return { title, url, about, index_image_url };
     });
     
     myCache.set( "alldocs", allDocs, 86400 );

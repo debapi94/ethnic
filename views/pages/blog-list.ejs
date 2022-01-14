@@ -1,0 +1,13 @@
+<div class="blog-list">
+    <% for(var i=0; i < blogs.length; i++) { %>
+        <div class="blog">
+            <div class="blog-image">
+                <img src='<%= blogs[i].index_image_url %>'>
+            </div>
+            <div class="blog-details">
+                <a href='<%= blogs[i].url %>' target="_blank"><%= blogs[i].title %></a>
+                <div><%= blogs[i].about %><i><a href='<%= blogs[i].url %>' target="_blank">Read</a></i></div>
+            </div>
+        </div>
+     <% } %>
+</div>
