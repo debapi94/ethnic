@@ -181,6 +181,15 @@ h1{
     justify-content: space-evenly;
 }
 
+audio{
+    margin-top: 50px;
+}
+
+audio::-webkit-media-controls-panel {
+    /* background: linear-gradient(rgb(222, 234, 245), rgb(0, 132, 255)) */
+    background: linear-gradient(rgb(232, 247, 237), rgb(77, 247, 134))
+}
+
 @media only screen and (max-width: 600px) {
 
     h1{
@@ -266,5 +275,10 @@ h1{
 }
 .affiliate > div:nth-child(2) a{
     margin-bottom: 5px;
+}
+
+audio{
+    width:250px;
+    max-width: 80%;
 }
   }
