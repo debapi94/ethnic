@@ -55,7 +55,7 @@ async function getAllDocs(){
     let allDocs = snapshot.docs.map(doc => {
         
         let { title, about, index_image_url } = doc.data();
-        let url = `/blog/${doc.id}/${title.replace(/ /g, "-")}`;
+        let url = `/blog/${doc.id}/${encodeURI(title.replace(/ /g, "-"))}`;
 
         return { title, url, about, index_image_url };
     });
