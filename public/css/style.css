@@ -26,6 +26,9 @@ body{
 
 .nav > div{
     margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .nav > div > a{
