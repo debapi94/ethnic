@@ -1,6 +1,6 @@
 <audio id="ethnic_bgm" src="https://ethnic-audio.s3.ap-south-1.amazonaws.com/bgm.mp3" loop></audio>
 <script>
-    document.addEventListener('click', musicPlay);
+    document.addEventListener('scroll', musicPlay);
         let vid = document.querySelector("#ethnic_bgm");
     let bgm_sound = document.querySelector("#bgm_sound");
     let bgm_mute = document.querySelector("#bgm_mute");
@@ -8,13 +8,13 @@
     bgm_mute.addEventListener('click', play);
         bgm_mute.style.display='block';
         bgm_sound.style.display='none';
+        vid.volume = 0.05;
 
     function musicPlay() {
         bgm_mute.style.display='none';
         bgm_sound.style.display='block';
         vid.play();
-        vid.volume = 0.05;
-        document.removeEventListener('click', musicPlay);
+        document.removeEventListener('scroll', musicPlay);
     }
     function pause() {
         bgm_sound.style.display='none';
