@@ -1,0 +1,28 @@
+.amazon-button{
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+.amazon-button a{
+    background: linear-gradient(rgb(248, 229, 53), rgb(252, 227, 4));
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .amazon-button{
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    .amazon-button a{
+        background: linear-gradient(rgb(248, 229, 53), rgb(252, 227, 4));
+        padding: 15px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+    }
+}

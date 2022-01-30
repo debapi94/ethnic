@@ -188,6 +188,28 @@ h1{
     justify-content: space-evenly;
 }
 
+.book-review{
+    border: 0px solid red;
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    font-size: 14px;
+    padding: 10px;
+    background-color: rgb(224, 222, 222);
+    max-width: 500px;
+    width: 100%;
+}
+
+.book-review > div:nth-child(1){
+    margin-bottom: 10px;
+}
+
+.book-review > .books{
+    border: 0px solid rgb(60, 7, 206);
+    display: flex;
+    justify-content: space-evenly;
+}
+
 audio{
     margin-top: 50px;
 }
@@ -281,6 +303,15 @@ audio::-webkit-media-controls-panel {
     align-items: center;
 }
 .affiliate > div:nth-child(2) a{
+    margin-bottom: 5px;
+}
+
+.book-review > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.book-review > div:nth-child(2) a{
     margin-bottom: 5px;
 }
 

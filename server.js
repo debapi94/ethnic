@@ -16,6 +16,7 @@ fs.initializeApp({
 
 const db = fs.firestore(); 
 const blogsDb = db.collection('blogs'); 
+const bookReviews = db.collection('book-review'); 
 
 
 app.get('/blog/:id/:title', async (req, res) => {
@@ -24,8 +25,9 @@ app.get('/blog/:id/:title', async (req, res) => {
     if(id){
         let cacheDoc = myCache.get(id);
         let allDocs = await getAllDocs();
+        let allbookReviews = await getAllBookReview();
         if(cacheDoc){
-            res.render('pages/blog', {...cacheDoc, blogs:allDocs});
+            res.render('pages/blog', {...cacheDoc, bookReviews:allbookReviews.slice(0,3), blogs:allDocs});
             return;
         }
 
@@ -33,7 +35,30 @@ app.get('/blog/:id/:title', async (req, res) => {
         let doc = snapshot.data();
         
         myCache.set( id, doc, 86400 );
-        res.render('pages/blog', {...doc, blogs:allDocs});
+        res.render('pages/blog', {...doc, bookReviews:allbookReviews.slice(0,3), blogs:allDocs});
+        return;
+    }
+
+    res.render('pages/error', {title:null});
+});
+
+app.get('/book-review/:id/:title', async (req, res) => {
+    let {id} = req.params;
+
+    if(id){
+        let cacheDoc = myCache.get(id);
+        
+        let allbookReviews = await getAllBookReview();
+        if(cacheDoc){
+            res.render('pages/book', {...cacheDoc, bookReviews:allbookReviews});
+            return;
+        }
+
+        let snapshot = await bookReviews.doc(id).get();
+        let doc = snapshot.data();
+        
+        myCache.set( id, doc, 86400 );
+        res.render('pages/book', {...doc, bookReviews:allbookReviews});
         return;
     }
 
@@ -61,6 +86,25 @@ async function getAllDocs(){
     });
     
     myCache.set( "alldocs", allDocs, 86400 );
+    return allDocs;
+}
+
+async function getAllBookReview(){
+    let docs = myCache.get("allbookreview");
+    if(docs){
+        return docs;
+    }
+
+    let snapshot = await bookReviews.get();
+    let allDocs = snapshot.docs.map(doc => {
+        
+        let { title, image, amazon_link, content="" } = doc.data();
+        let url = `/book-review/${doc.id}/${encodeURI(title.replace(/ /g, "-"))}`;
+
+        return { title, url, amazon_link, content, image };
+    });
+    
+    myCache.set( "allbookreview", allDocs, 86400 );
     return allDocs;
 }
 

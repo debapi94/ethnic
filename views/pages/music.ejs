@@ -10,11 +10,11 @@
         bgm_sound.style.display='none';
         vid.volume = 0.05;
 
-    function musicPlay() {
-        bgm_mute.style.display='none';
-        bgm_sound.style.display='block';
-        vid.play();
-        document.removeEventListener('scroll', musicPlay);
+    function musicPlay(e) {
+            bgm_mute.style.display='none';
+            bgm_sound.style.display='block';
+            vid.play();
+            document.removeEventListener('scroll', musicPlay);
     }
     function pause() {
         bgm_sound.style.display='none';

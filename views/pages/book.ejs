@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('header.ejs') %>
+<body>
+    <%- include('nav.ejs') %>
+    <%- content %>
+    <div class="amazon-button">
+        <a href='<%= amazon_link %>' target="_blank">Check out at Amazon.in</a>
+    </div>
+    <%- include('book-list.ejs') %>
+</body>
+</html>

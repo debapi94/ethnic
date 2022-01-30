@@ -1,0 +1,11 @@
+<div class="book-review">
+    <div>Book Review</div>
+    <div class="books">
+        <% for(var i=0; i < bookReviews.length; i++) { %>
+            <a href='<%= bookReviews[i].url %>'><img
+                    src='<%= bookReviews[i].image %>'
+                    width="100px" />
+            </a>
+        <% } %>
+    </div>
+</div>
