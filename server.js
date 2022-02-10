@@ -66,10 +66,10 @@ app.get('/book-review/:id/:title', async (req, res) => {
 });
 
 app.get('/', async (req, res) => {
-    //let allDocs = await getAllDocs();
-    let allbookReviews = await getAllBookReview();
-    //res.render('pages/index', {blogs:allDocs, title:null});
-    res.render('pages/index', {bookReviews:allbookReviews, title:null});
+    let allDocs = await getAllDocs();
+    //let allbookReviews = await getAllBookReview();
+    res.render('pages/index', {blogs:allDocs, title:null});
+    //res.render('pages/index', {bookReviews:allbookReviews, title:null});
 });
 
 async function getAllDocs(){
