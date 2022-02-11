@@ -4,6 +4,13 @@
 <body>
     <%- include('nav.ejs') %>
     <%- content %>
+    <form action="/joinus" method="post" class="joinus">
+        Name:
+        <input type="name" name="name" maxlength="40" minlength="2" required/>
+        Email:
+        <input type="email" name="email" maxlength="32" minlength="5" required/>
+        <button class="button" type="submit">Join Us</button>
+    </form>
     <%- include('blog-list.ejs') %>
 </body>
 </html>

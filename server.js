@@ -1,13 +1,24 @@
 const express = require('express')
 const app = express();
+//var helmet = require('helmet');
+var rateLimit = require("express-rate-limit");
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // limit each IP to 100 requests per windowMs
+  });
 
-const NodeCache = require( "node-cache" );
-const myCache = new NodeCache();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+//app.use(helmet());
+app.use(limiter);
 
 
+const NodeCache = require( "node-cache" );
+const myCache = new NodeCache();
 const fs = require('firebase-admin');
 const serviceAccount = require('./key.json');
 fs.initializeApp({
@@ -16,7 +27,14 @@ fs.initializeApp({
 
 const db = fs.firestore(); 
 const blogsDb = db.collection('blogs'); 
+const userDb = db.collection('user'); 
 const bookReviews = db.collection('book-review'); 
+
+app.post('/joinus', async (req, res) => {
+    let doc = userDb.doc();
+    await doc.create({...req.body, createdAt:new Date()});
+    res.render('pages/thankyou', {title: "Thank you!"});
+});
 
 
 app.get('/blog/:id/:title', async (req, res) => {
