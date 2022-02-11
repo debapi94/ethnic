@@ -227,6 +227,7 @@ audio::-webkit-media-controls-panel {
     width: 60%;
     max-width: 400px;
     box-shadow: 1px 1px 1px #838282;
+    margin-bottom: 50px;
 }
 
 .joinus input{
